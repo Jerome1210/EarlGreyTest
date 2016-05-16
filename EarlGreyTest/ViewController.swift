@@ -8,14 +8,27 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let button = createButton("test1")
         self.view.addSubview(button)
+        let table = createTable()
+        self.view.addSubview(table)
+        
+        var constraint = [NSLayoutConstraint]()
+        let views = ["table" : table]
+        constraint += NSLayoutConstraint.constraintsWithVisualFormat("H:|-0-[table]-0-|",
+                                                                     options: .AlignmentMask,
+                                                                     metrics: nil,
+                                                                     views:views)
+        constraint += NSLayoutConstraint.constraintsWithVisualFormat("V:[table(300)]-0-|",
+                                                                     options: .AlignmentMask,
+                                                                     metrics: nil, views: views)
+        NSLayoutConstraint.activateConstraints(constraint)
+        
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -46,5 +59,32 @@ class ViewController: UIViewController {
         let randomBlue = CGFloat(drand48())
         return UIColor.init(red: randomRed, green: randomGreen, blue: randomBlue, alpha: 1.0)
     }
+    
+    func createTable() -> UITableView {
+        let frame = CGRectMake(0, 0, 320, 300)
+        let table = UITableView(frame: frame)
+        table.delegate = self
+        table.dataSource = self
+        table.translatesAutoresizingMaskIntoConstraints = false
+        table.accessibilityIdentifier = "table"
+        return table
+    }
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return 1
+    }
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 50
+    }
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "cell")
+        cell.textLabel?.text = "title \(indexPath.row)"
+        cell.accessibilityIdentifier = cell.textLabel?.text
+        return cell
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+    }
+    
 }
 

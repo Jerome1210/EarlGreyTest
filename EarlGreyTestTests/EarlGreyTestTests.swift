@@ -10,11 +10,16 @@ import XCTest
 @testable import EarlGreyTest
 
 class EarlGreyTestTests: XCTestCase {
-    func testBasicSelection() {
-        EarlGrey().selectElementWithMatcher(grey_accessibilityID("test1")).performAction(grey_tap())
+    func testBasicSelectionAndVisible() {
+        EarlGrey().selectElementWithMatcher(grey_accessibilityID("test1"))
+            .performAction(grey_tap())
+            .assertWithMatcher(grey_sufficientlyVisible())
     }
-    func testSufficientlyVisible() {
-        EarlGrey().selectElementWithMatcher(grey_accessibilityID("test1")).assertWithMatcher(grey_sufficientlyVisible())
+    func testSearchTableview() {
+        EarlGrey().selectElementWithMatcher(grey_accessibilityID("title 49"))
+            .usingSearchAction(grey_scrollInDirection(.Down, 150),
+                               onElementWithMatcher:grey_accessibilityID("table"))
+            .performAction(grey_tap())
     }
-       
+    
 }
