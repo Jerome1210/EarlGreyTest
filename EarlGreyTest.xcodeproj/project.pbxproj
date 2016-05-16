@@ -15,6 +15,7 @@
 		9B731CFD1CE5D2FD00A945ED /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B731CFB1CE5D2FD00A945ED /* LaunchScreen.storyboard */; };
 		9B731D081CE5D2FE00A945ED /* EarlGreyTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B731D071CE5D2FE00A945ED /* EarlGreyTestTests.swift */; };
 		9B731D131CE5D2FE00A945ED /* EarlGreyTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B731D121CE5D2FE00A945ED /* EarlGreyTestUITests.swift */; };
+		9BB5A64D1CE974EE00396FEB /* EarlGrey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB5A64C1CE974EE00396FEB /* EarlGrey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		9B731D0E1CE5D2FE00A945ED /* EarlGreyTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EarlGreyTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B731D121CE5D2FE00A945ED /* EarlGreyTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EarlGreyTestUITests.swift; sourceTree = "<group>"; };
 		9B731D141CE5D2FE00A945ED /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9BB5A64C1CE974EE00396FEB /* EarlGrey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarlGrey.swift; sourceTree = "<group>"; };
+		9BB5A64E1CE975C700396FEB /* BridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
 		C8EDA70E4FA642E64C90FB6A /* libPods-EarlGreyTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarlGreyTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDB48F37AA25F98DAC9BECD1 /* Pods-EarlGreyTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarlGreyTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarlGreyTestTests/Pods-EarlGreyTestTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -136,6 +139,8 @@
 			children = (
 				9B731D071CE5D2FE00A945ED /* EarlGreyTestTests.swift */,
 				9B731D091CE5D2FE00A945ED /* Info.plist */,
+				9BB5A64E1CE975C700396FEB /* BridgingHeader.h */,
+				9BB5A64C1CE974EE00396FEB /* EarlGrey.swift */,
 			);
 			path = EarlGreyTestTests;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9BB5A64D1CE974EE00396FEB /* EarlGrey.swift in Sources */,
 				9B731D081CE5D2FE00A945ED /* EarlGreyTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +507,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.Lee.Jerome.EarlGreyTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = EarlGreyTestTests/BridgingHeader.h;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EarlGreyTest.app/EarlGreyTest";
 			};
 			name = Debug;
@@ -514,6 +521,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = tw.Lee.Jerome.EarlGreyTestTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = EarlGreyTestTests/BridgingHeader.h;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EarlGreyTest.app/EarlGreyTest";
 			};
 			name = Release;
